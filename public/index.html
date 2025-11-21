@@ -12,17 +12,24 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./js/MalcolmNg.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
+    <!-- Header -->
     <header class="app-header">
       <div class="app-logo">Eventure</div>
     </header>
 
+    <!-- Main -->
     <main class="page">
+
+      <!-- Hero -->
       <section class="hero">
         <h1>Connect with events that matter to you</h1>
+
+        <!-- Add Event Button -->
         <button
           type="button"
           class="btn btn-primary"
@@ -33,6 +40,15 @@
         </button>
       </section>
 
+      <!-- Events grid -->
+      <section class="events-section">
+        <div id="events-container" class="events-grid">
+          <!-- Cards injected here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Add Event Modal -->
     <div
       class="modal fade"
       id="addEventModal"
@@ -94,11 +110,7 @@
           </div>
 
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Close
             </button>
             <button type="button" class="btn btn-success" onclick="addEvent()">
@@ -108,5 +120,21 @@
         </div>
       </div>
     </div>
+
+    <!-- Delete modal -->
+    <div id="delete-modal-overlay" class="modal-overlay hidden">
+      <div class="modal">
+        <p class="modal__title">Are you sure you want to delete?</p>
+        <div class="modal__actions">
+          <button id="confirm-delete-btn" class="btn btn-danger">Confirm</button>
+          <button id="cancel-delete-btn" class="btn btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/MalcolmNg.js"></script>
+    <script src="js/view-events.js" defer></script>
+    <script src="js/MikealLeow.js" defer></script>
   </body>
 </html>

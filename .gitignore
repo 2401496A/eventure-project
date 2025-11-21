@@ -84,7 +84,7 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
+# Comment in the public line if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
@@ -137,3 +137,13 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+
+# CUSTOM RULES FOR DEVOPS (MIKEAL)
+
+# Ignore runtime event data file (team JSON data storage - not committed)
+utils/events.json
+
+# Keep events template under version control
+!utils/events.template.json
+
