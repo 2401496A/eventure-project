@@ -20,12 +20,16 @@ app.get('/view-events', viewEvents);
 // API: Add Event (from add-event branch)
 app.post('/add-event', addEvent);
 
+// API: Edit Event (from edit-event branch)
 app.put('/edit-event/:id', async (req, res) => {
   try {
-    const result = await editEvent(req, res); 
+    // Run the update logic
+    const result = await editEvent(req, res);
 
+    // Stop if response already sent inside the utility
     if (res.headersSent) return;
 
+    // Send success or error result
     if (result.success) {
       return res.status(200).json(result);
     } else {
@@ -34,6 +38,7 @@ app.put('/edit-event/:id', async (req, res) => {
 
   } catch (error) {
     console.error("Edit event error:", error);
+    // Server error fallback
     return res.status(500).json({
       success: false,
       message: "Server error while updating event."
