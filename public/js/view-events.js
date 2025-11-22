@@ -137,7 +137,7 @@ function createEventCard(event) {
   editBtn.className = "btn";
   editBtn.textContent = "Edit";
   editBtn.addEventListener("click", () => {
-    alert("Edit Event feature will be implemented by your teammate.");
+    editEvent(event); 
   });
 
   const deleteBtn = document.createElement("button");
