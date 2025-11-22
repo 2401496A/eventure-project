@@ -12,12 +12,15 @@ app.use(bodyParser.json());
 const { viewEvents } = require('./utils/ViewEventUtil');
 const { deleteEvent } = require('./utils/MikealLeowUtil');
 const { addEvent } = require('./utils/MalcolmNgUtil');
+const { editEvent } = require('./utils/HugoYeeUtil');
 
 // API: View Events (must come before express.static)
 app.get('/view-events', viewEvents);
 
 // API: Add Event (from add-event branch)
 app.post('/add-event', addEvent);
+
+app.put('/edit-event/:id', editEvent);
 
 // API: Delete Event
 app.delete('/delete-event/:id', async (req, res) => {
@@ -30,6 +33,7 @@ app.delete('/delete-event/:id', async (req, res) => {
     return res.status(400).json(result);
   }
 });
+
 
 // Serve static frontend files
 app.use(express.static('./public'));
